@@ -1,26 +1,31 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import Movies from "./components/Movies";
 import Navbar from "./components/Navbar";
 import MoviesInList from "./components/MoviesInList";
+import MoviesContext from "./contexts/MoviesContext";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [favouriteMovies, setFavouriteMovies] = useState([]);
+  const {
+    movies,
+    setMovies,
+    displayMovies,
+    favouriteMovies,
+    onAddMoviesToList,
+    setFavouriteMovies,
+  } = useContext(MoviesContext);
 
-  const displayMovies = (movies) => {
-    setMovies(movies);
-    // console.log(movies);
-  };
+  // const [movies, setMovies] = useState([]);
+  // const [favouriteMovies, setFavouriteMovies] = useState([]);
 
-  const onAddMoviesToList = (id) => {
-    // console.log(id);
-    // console.log(movies);
-    const filteredMovie = movies.Search.filter((m) => m.imdbID === id);
-    setFavouriteMovies((oldMovies) => [...oldMovies, filteredMovie]);
-    // console.log(filteredMovie);
-    // console.log(movieInList);
-  };
+  // const displayMovies = (movies) => {
+  //   setMovies(movies);
+  // };
+
+  // const onAddMoviesToList = (id) => {
+  //   const filteredMovie = movies.Search.filter((m) => m.imdbID === id);
+  //   setFavouriteMovies((oldMovies) => [...oldMovies, filteredMovie]);
+  // };
   return (
     <>
       <Navbar displayMovies={displayMovies} />
@@ -31,7 +36,10 @@ function App() {
       )}
 
       {favouriteMovies.length > 0 && (
-        <MoviesInList favouriteMovies={favouriteMovies} />
+        <MoviesInList
+          favouriteMovies={favouriteMovies}
+          setFavouriteMovies={setFavouriteMovies}
+        />
       )}
     </>
   );
