@@ -62,7 +62,7 @@ const Navbar = ({ displayMovies }) => {
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex shrink-0 items-center">
-                <i className="fa-solid fa-film text-2xl"></i>
+                <i className="fa-solid fa-film text-2xl"></i>&nbsp;
                 <h1 className="font-bold">OMDB API </h1>
               </div>
               <div className="hidden sm:ml-6 sm:block">
@@ -73,6 +73,7 @@ const Navbar = ({ displayMovies }) => {
                     type="text"
                     name="search"
                     value={search}
+                    e
                     onChange={(e) => setSearch(e.target.value)}
                   />
                   <span className="sm:ml-3">
