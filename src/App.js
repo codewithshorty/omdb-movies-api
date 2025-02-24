@@ -28,7 +28,7 @@ function App() {
   // };
   return (
     <>
-      <Navbar displayMovies={displayMovies} />
+      <Navbar displayMovies={displayMovies} movies={movies} />
       {movies.totalResults > 0 ? (
         <Movies movies={movies} addMoviesToList={onAddMoviesToList} />
       ) : (
