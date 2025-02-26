@@ -12,37 +12,34 @@ const Navbar = ({ displayMovies, movies }) => {
   let pageNo = Math.ceil(movies.totalResults / 10);
 
   let visiblePagination = pageNo > 0 && search !== "" ? true : false;
-  const previousPage = () => {
-    if (page > 1) {
-      setPage((prev) => prev - 1);
-    } else {
-      console.log("minPage");
-    }
-  };
-
-  const nextPage = () => {
-    if (page <= pageNo - 1) {
-      setPage((next) => next + 1);
-    } else {
-      console.log("maxPage");
-    }
-  };
-
-  const myAPI = 11087886;
-
-  useEffect(() => {
-    fetch(`https://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
-      .then((res) => res.json())
-      .then((resJson) => displayMovies(resJson))
-      .catch((error) => console.log(error));
-  }, [page]);
 
   const searchTheMovie = () => {
     fetch(`https://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
       .then((res) => res.json())
       .then((resJson) => displayMovies(resJson))
       .catch((error) => console.log(error));
+  }; // Add dependencies here
+
+  useEffect(() => {
+    if (search) {
+      searchTheMovie();
+    }
+  }, [page]);
+
+  const previousPage = () => {
+    if (page > 1) {
+      setPage((prev) => prev - 1);
+    }
   };
+
+  const nextPage = () => {
+    if (page <= pageNo - 1) {
+      setPage((next) => next + 1);
+    }
+  };
+
+  const myAPI = 11087886;
+
   return (
     <>
       <nav className="bg-yellow-400">
