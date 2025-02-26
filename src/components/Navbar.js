@@ -35,7 +35,7 @@ const Navbar = ({ displayMovies, movies }) => {
       .then((res) => res.json())
       .then((resJson) => displayMovies(resJson))
       .catch((error) => console.log(error));
-  }, [page, displayMovies, search]);
+  }, [page]);
 
   const searchTheMovie = () => {
     fetch(`https://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
