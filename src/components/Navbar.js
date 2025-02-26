@@ -31,14 +31,14 @@ const Navbar = ({ displayMovies, movies }) => {
   const myAPI = 11087886;
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
+    fetch(`https://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
       .then((res) => res.json())
       .then((resJson) => displayMovies(resJson))
       .catch((error) => console.log(error));
   }, [page, displayMovies, search]);
 
   const searchTheMovie = () => {
-    fetch(`http://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
+    fetch(`https://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
       .then((res) => res.json())
       .then((resJson) => displayMovies(resJson))
       .catch((error) => console.log(error));
