@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./App.css";
 import Movies from "./components/Movies";
 import Navbar from "./components/Navbar";
@@ -8,24 +8,12 @@ import MoviesContext from "./contexts/MoviesContext";
 function App() {
   const {
     movies,
-    setMovies,
     displayMovies,
     favouriteMovies,
     onAddMoviesToList,
     setFavouriteMovies,
   } = useContext(MoviesContext);
 
-  // const [movies, setMovies] = useState([]);
-  // const [favouriteMovies, setFavouriteMovies] = useState([]);
-
-  // const displayMovies = (movies) => {
-  //   setMovies(movies);
-  // };
-
-  // const onAddMoviesToList = (id) => {
-  //   const filteredMovie = movies.Search.filter((m) => m.imdbID === id);
-  //   setFavouriteMovies((oldMovies) => [...oldMovies, filteredMovie]);
-  // };
   return (
     <>
       <Navbar displayMovies={displayMovies} movies={movies} />

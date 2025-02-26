@@ -2,14 +2,12 @@ import React from "react";
 
 const MoviesInList = ({ favouriteMovies, setFavouriteMovies }) => {
   const removeFromList = (item) => {
-    // console.log(favouriteMovies);
     const newFavourites = favouriteMovies.filter(
       (movie) => movie[0].imdbID !== item
     );
     setFavouriteMovies(newFavourites);
   };
 
-  // console.log(movieInList);
   return (
     <div>
       <div>

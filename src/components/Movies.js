@@ -1,8 +1,6 @@
 import React from "react";
 
 const Movies = ({ movies, addMoviesToList }) => {
-  // console.log(movies);
-
   return (
     <div>
       <div className="bg-black-500/75 py-12 sm:py-16">
