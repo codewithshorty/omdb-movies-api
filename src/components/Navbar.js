@@ -31,8 +31,11 @@ const Navbar = ({ displayMovies, movies }) => {
   const myAPI = 11087886;
 
   useEffect(() => {
-    searchTheMovie();
-  }, [page]);
+    fetch(`http://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
+      .then((res) => res.json())
+      .then((resJson) => displayMovies(resJson))
+      .catch((error) => console.log(error));
+  }, [page, displayMovies, search]);
 
   const searchTheMovie = () => {
     fetch(`http://www.omdbapi.com/?apikey=${myAPI}&s=${search}&page=${page}`)
@@ -40,7 +43,6 @@ const Navbar = ({ displayMovies, movies }) => {
       .then((resJson) => displayMovies(resJson))
       .catch((error) => console.log(error));
   };
-
   return (
     <>
       <nav className="bg-yellow-400">
