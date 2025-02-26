@@ -8,7 +8,7 @@ const Movies = ({ movies, addMoviesToList }) => {
       <div className="bg-black-500/75 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-yellow-400 sm:text-5xl">
+            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-yellow-400 bg-stone-900 p-4 inline-block sm:text-5xl drop-shadow-xl">
               Searched Movie term results:
             </h2>
           </div>
@@ -42,8 +42,8 @@ const Movies = ({ movies, addMoviesToList }) => {
                     className="bg-yellow-300 hover:bg-yellow-600 text-black font-semibold py-2 px-4 rounded inline-flex items-center mt-3"
                     onClick={() => addMoviesToList(movie.imdbID)}
                   >
-                    <i class="fa-solid fa-heart-circle-plus text-2xl"></i>&nbsp;
-                    Add to list
+                    <i className="fa-solid fa-heart-circle-plus text-2xl"></i>
+                    &nbsp; Add to list
                   </button>
                 </div>
               </article>

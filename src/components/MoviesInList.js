@@ -2,7 +2,7 @@ import React from "react";
 
 const MoviesInList = ({ favouriteMovies, setFavouriteMovies }) => {
   const removeFromList = (item) => {
-    console.log(favouriteMovies);
+    // console.log(favouriteMovies);
     const newFavourites = favouriteMovies.filter(
       (movie) => movie[0].imdbID !== item
     );
@@ -15,8 +15,8 @@ const MoviesInList = ({ favouriteMovies, setFavouriteMovies }) => {
       <div>
         <div className="bg-black-500/75 py-10 sm:py-15 border-t-8 border-yellow-400 ">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-yellow-400 sm:text-5xl text-center">
-              Favourite movies <i class="fa-regular fa-star"></i>
+            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-yellow-400 bg-stone-900 p-4 inline-block sm:text-5xl text-center">
+              Favourite movies <i className="fa-regular fa-star"></i>
             </h2>
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {favouriteMovies.map((movie, key) => (
@@ -48,7 +48,7 @@ const MoviesInList = ({ favouriteMovies, setFavouriteMovies }) => {
                       className="bg-red-400 hover:bg-red-600 text-black font-semibold py-2 px-4 rounded inline-flex items-center mt-3"
                       onClick={() => removeFromList(movie[0].imdbID)}
                     >
-                      <i class="fa-solid fa-heart-circle-minus text-2xl"></i>
+                      <i className="fa-solid fa-heart-circle-minus text-2xl"></i>
                       &nbsp; Remove from list
                     </button>
                   </div>
